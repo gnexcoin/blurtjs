@@ -1,7 +1,7 @@
 {
-  "name": "@hiveio/hive-js",
+  "name": "@openblurt/blurtjs",
   "version": "0.1.0",
-  "description": "Hive.js the JavaScript API for Hive blockchain",
+  "description": "Blurt.js the JavaScript API for Blurt blockchain",
   "main": "lib/index.js",
   "scripts": {
     "test": "eslint --quiet src test; mocha -t 40000 --require babel-polyfill --require babel-register",
@@ -17,20 +17,19 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://gitlab.syncad.com/hive/hive-js.git"
+    "url": "git+https://gitlab.com/blurt/openblurt/blurtjs.git"
   },
   "keywords": [
-    "hive",
-    "hiveblog",
+    "blurt",
     "blockchain",
-    "hivejs"
+    "blurtjs"
   ],
-  "author": "Fabien (https://github.com/bonustrack)",
+  "author": "Loki (https://github.com/stalker-loki)",
   "license": "MIT",
   "bugs": {
-    "url": "https://gitlab.syncad.com/hive/hive-js/issues"
+    "url": "https://gitlab.com/blurt/openblurt/blurtjs/-/issues"
   },
-  "homepage": "https://gitlab.syncad.com/hive/hive-js#readme",
+  "homepage": "https://gitlab.com/blurt/openblurt/blurtjs#readme",
   "dependencies": {
     "@steemit/rpc-auth": "^1.1.1",
     "bigi": "^1.4.2",
@@ -76,7 +75,8 @@
     "James Calfee (https://github.com/jcalfee)",
     "Nilesh Suthar (https://github.com/nil1511)",
     "Pedro Tacla Yamada (https://github.com/yamadapc)",
-    "MahdiYari (https://github.com/mahdiyari)"
+    "MahdiYari (https://github.com/mahdiyari)",
+    "Loki (https://github.com/stalker-loki)"
   ],
   "directories": {
     "doc": "doc",
