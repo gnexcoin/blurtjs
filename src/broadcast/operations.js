@@ -51,47 +51,10 @@ module.exports = [
   },
   {
     "roles": ["active", "owner"],
-    "operation": "limit_order_create",
-    "params": [
-      "owner",
-      "orderid",
-      "amount_to_sell",
-      "min_to_receive",
-      "fill_or_kill",
-      "expiration"
-    ]
-  },
-  {
-    "roles": ["active", "owner"],
-    "operation": "limit_order_cancel",
-    "params": [
-      "owner",
-      "orderid"
-    ]
-  },
-  {
-    "roles": ["active", "owner"],
     "operation": "price",
     "params": [
       "base",
       "quote"
-    ]
-  },
-  {
-    "roles": ["active", "owner"],
-    "operation": "feed_publish",
-    "params": [
-      "publisher",
-      "exchange_rate"
-    ]
-  },
-  {
-    "roles": ["active", "owner"],
-    "operation": "convert",
-    "params": [
-      "owner",
-      "requestid",
-      "amount"
     ]
   },
   {
@@ -117,7 +80,9 @@ module.exports = [
       "active",
       "posting",
       "memo_key",
-      "json_metadata"
+      "json_metadata",
+      "posting_json_metadata",
+      "extensions"
     ]
   },
   {
@@ -146,16 +111,6 @@ module.exports = [
     "params": [
       "account",
       "proxy"
-    ]
-  },
-  {
-    "roles": ["active", "owner"],
-    "operation": "pow",
-    "params": [
-      "worker",
-      "input",
-      "signature",
-      "work"
     ]
   },
   {
@@ -192,7 +147,6 @@ module.exports = [
       "author",
       "permlink",
       "max_accepted_payout",
-      "percent_steem_dollars",
       "allow_votes",
       "allow_curation_rewards",
       "extensions"
@@ -206,18 +160,6 @@ module.exports = [
       "to_account",
       "percent",
       "auto_vest"
-    ]
-  },
-  {
-    "roles": ["active", "owner"],
-    "operation": "limit_order_create2",
-    "params": [
-      "owner",
-      "orderid",
-      "amount_to_sell",
-      "exchange_rate",
-      "fill_or_kill",
-      "expiration"
     ]
   },
   {
@@ -280,8 +222,7 @@ module.exports = [
       "to",
       "agent",
       "escrow_id",
-      "sbd_amount",
-      "steem_amount",
+      "blurt_amount",
       "fee",
       "ratification_deadline",
       "escrow_expiration",
@@ -309,16 +250,7 @@ module.exports = [
       "who",
       "receiver",
       "escrow_id",
-      "sbd_amount",
-      "steem_amount"
-    ]
-  },
-  {
-    "roles": ["active", "owner"],
-    "operation": "pow2",
-    "params": [
-      "input",
-      "pow_summary"
+      "blurt_amount"
     ]
   },
   {
@@ -401,8 +333,7 @@ module.exports = [
     "operation": "claim_reward_balance",
     "params": [
       "account",
-      "reward_steem",
-      "reward_sbd",
+      "reward_blurt",
       "reward_vests"
     ]
   },
@@ -417,40 +348,10 @@ module.exports = [
   },
   {
     "roles": ["active", "owner"],
-    "operation": "account_create_with_delegation",
-    "params": [
-      "fee",
-      "delegation",
-      "creator",
-      "new_account_name",
-      "owner",
-      "active",
-      "posting",
-      "memo_key",
-      "json_metadata",
-      "extensions"
-    ]
-  },
-  {
-    "roles": ["active", "owner"],
     "operation": "witness_set_properties",
     "params": [
       "owner",
       "props",
-      "extensions"
-    ]
-  },
-  {
-    "roles": ["posting", "active", "owner"],
-    "operation": "account_update2",
-    "params": [
-      "account",
-      "owner",
-      "active",
-      "posting",
-      "memo_key",
-      "json_metadata",
-      "posting_json_metadata",
       "extensions"
     ]
   },
@@ -489,149 +390,11 @@ module.exports = [
   },
   {
     "roles": ["posting", "active", "owner"],
-    "operation": "claim_reward_balance2",
-    "params": [
-      "account",
-      "reward_tokens",
-      "extensions"
-    ]
-  },
-  {
-    "roles": ["posting", "active", "owner"],
-    "operation": "vote2",
-    "params": [
-      "voter",
-      "author",
-      "permlink",
-      "rshares",
-      "extensions"
-    ]
-  },
-  {
-    "roles": ["active", "owner"],
-    "operation": "smt_create",
-    "params": [
-      "control_account",
-      "symbol",
-      "smt_creation_fee",
-      "precision",
-      "extensions"
-    ]
-  },
-  {
-    "roles": ["active", "owner"],
-    "operation": "smt_setup",
-    "params": [
-      "control_account",
-      "symbol",
-      "max_supply",
-      "contribution_begin_time",
-      "contribution_end_time",
-      "launch_time",
-      "steem_units_min",
-      "min_unit_ratio",
-      "max_unit_ratio",
-      "extensions"
-    ]
-  },
-  {
-    "roles": ["active", "owner"],
-    "operation": "smt_setup_emissions",
-    "params": [
-      "control_account",
-      "symbol",
-      "schedule_time",
-      "emissions_unit",
-      "interval_seconds",
-      "interval_coount",
-      "lep_time",
-      "rep_time",
-      "lep_abs_amount",
-      "rep_abs_amount",
-      "lep_rel_amount_numerator",
-      "rep_rel_amount_numerator",
-      "rel_amount_denom_bits",
-      "remove",
-      "floor_emissions",
-      "extensions"
-    ]
-  },
-  {
-    "roles": ["active", "owner"],
-    "operation": "smt_setup_ico_tier",
-    "params": [
-      "control_account",
-      "symbol",
-      "steem_units_cap",
-      "generation_policy",
-      "remove",
-      "extensions"
-    ]
-  },
-  {
-    "roles": ["active", "owner"],
-    "operation": "smt_set_setup_parameters",
-    "params": [
-      "control_account",
-      "symbol",
-      "setup_parameters",
-      "extensions"
-    ]
-  },
-  {
-    "roles": ["active", "owner"],
-    "operation": "smt_set_runtime_parameters",
-    "params": [
-      "control_account",
-      "symbol",
-      "runtime_parameters",
-      "extensions"
-    ]
-  },
-  {
-    "roles": ["active", "owner"],
-    "operation": "smt_contribute",
-    "params": [
-      "contributor",
-      "symbol",
-      "contribution_id",
-      "contribution",
-      "extensions"
-    ]
-  },
-  {
-    "roles": ["active", "owner"],
-    "operation": "fill_convert_request",
-    "params": [
-      "owner",
-      "requestid",
-      "amount_in",
-      "amount_out"
-    ]
-  },
-  {
-    "roles": ["posting", "active", "owner"],
     "operation": "comment_reward",
     "params": [
       "author",
       "permlink",
       "payout"
-    ]
-  },
-  {
-    "roles": ["active", "owner"],
-    "operation": "liquidity_reward",
-    "params": [
-      "owner",
-      "payout"
-    ]
-  },
-  {
-    "roles": ["active", "owner"],
-    "operation": "interest",
-    "params": [
-      "owner",
-      "interest"
     ]
   },
   {
@@ -642,18 +405,6 @@ module.exports = [
       "to_account",
       "withdrawn",
       "deposited"
-    ]
-  },
-  {
-    "roles": ["posting", "active", "owner"],
-    "operation": "fill_order",
-    "params": [
-      "current_owner",
-      "current_orderid",
-      "current_pays",
-      "open_owner",
-      "open_orderid",
-      "open_pays"
     ]
   },
   {

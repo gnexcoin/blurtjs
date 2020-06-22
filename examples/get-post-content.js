@@ -1,4 +1,4 @@
-const hive = require('../lib');
+const blurt = require('../lib');
 
-const resultP = hive.api.getContentAsync('hiveio', 'announcing-the-launch-of-hive-blockchain');
+const resultP = blurt.api.getContentAsync('hiveio', 'announcing-the-launch-of-hive-blockchain');
 resultP.then(result => console.log(result));

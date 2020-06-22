@@ -25,14 +25,14 @@
 
 # Install
 ```
-$ npm install @hiveio/hive-js --save
+$ npm install @hiveio/blurt-js --save
 ```
 
 # Browser 
 ```html 
-<script src="./hive.min.js"></script>
+<script src="./blurt.min.js"></script>
 <script>
-hive.api.getAccounts(['mahdiyari', 'hiveio'], function(err, response){
+blurt.api.getAccounts(['mahdiyari', 'hiveio'], function(err, response){
     console.log(err, response);
 });
 </script>
@@ -42,24 +42,24 @@ hive.api.getAccounts(['mahdiyari', 'hiveio'], function(err, response){
 Default config should work with Hive. However you can change default config.
 as 
 ```js
-hive.api.setOptions({ url: 'https://anyx.io' });
-hive.config.set('address_prefix','STM');
-hive.config.set('chain_id','0000000000000000000000000000000000000000000000000000000000000000');
-hive.config.set('alternative_api_endpoints', ['https://api.hive.blog', 'https://anyx.io']);
+blurt.api.setOptions({ url: 'https://anyx.io' });
+blurt.config.set('address_prefix','BLT');
+blurt.config.set('chain_id','afa547e2e0adef898219d7f74abf36e6e957460a70120db21a03fed76cc0e8b6');
+blurt.config.set('alternative_api_endpoints', ['https://api.hive.blog', 'https://anyx.io']);
 ```
 ### set
 ```
-hive.config.set('address_prefix','STM');
+blurt.config.set('address_prefix','BLT');
 ```
 ### get
 ```
-hive.config.get('chain_id');
+blurt.config.get('chain_id');
 ```
 
 ## JSON-RPC
 Here is how to activate JSON-RPC transport:
 ```js
-hive.api.setOptions({ url: 'https://api.hive.blog' });
+blurt.api.setOptions({ url: 'https://api.hive.blog' });
 ```
 
 # API
@@ -68,25 +68,25 @@ hive.api.setOptions({ url: 'https://api.hive.blog' });
 
 ### Set Subscribe Callback
 ```
-hive.api.setSubscribeCallback(callback, clearFilter, function(err, result) {
+blurt.api.setSubscribeCallback(callback, clearFilter, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Set Pending Transaction Callback
 ```
-hive.api.setPendingTransactionCallback(cb, function(err, result) {
+blurt.api.setPendingTransactionCallback(cb, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Set Block Applied Callback
 ```
-hive.api.setBlockAppliedCallback(cb, function(err, result) {
+blurt.api.setBlockAppliedCallback(cb, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Cancel All Subscriptions
 ```
-hive.api.cancelAllSubscriptions(function(err, result) {
+blurt.api.cancelAllSubscriptions(function(err, result) {
   console.log(err, result);
 });
 ```
@@ -95,73 +95,73 @@ hive.api.cancelAllSubscriptions(function(err, result) {
 
 ### Get Trending Tags
 ```
-hive.api.getTrendingTags(afterTag, limit, function(err, result) {
+blurt.api.getTrendingTags(afterTag, limit, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Get Discussions By Trending
 ```
-hive.api.getDiscussionsByTrending(query, function(err, result) {
+blurt.api.getDiscussionsByTrending(query, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Get Discussions By Created
 ```
-hive.api.getDiscussionsByCreated(query, function(err, result) {
+blurt.api.getDiscussionsByCreated(query, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Get Discussions By Active
 ```
-hive.api.getDiscussionsByActive(query, function(err, result) {
+blurt.api.getDiscussionsByActive(query, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Get Discussions By Cashout
 ```
-hive.api.getDiscussionsByCashout(query, function(err, result) {
+blurt.api.getDiscussionsByCashout(query, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Get Discussions By Payout
 ```
-hive.api.getDiscussionsByPayout(query, function(err, result) {
+blurt.api.getDiscussionsByPayout(query, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Get Discussions By Votes
 ```
-hive.api.getDiscussionsByVotes(query, function(err, result) {
+blurt.api.getDiscussionsByVotes(query, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Get Discussions By Children
 ```
-hive.api.getDiscussionsByChildren(query, function(err, result) {
+blurt.api.getDiscussionsByChildren(query, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Get Discussions By Hot
 ```
-hive.api.getDiscussionsByHot(query, function(err, result) {
+blurt.api.getDiscussionsByHot(query, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Get Discussions By Feed
 ```
-hive.api.getDiscussionsByFeed(query, function(err, result) {
+blurt.api.getDiscussionsByFeed(query, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Get Discussions By Blog
 ```
-hive.api.getDiscussionsByBlog(query, function(err, result) {
+blurt.api.getDiscussionsByBlog(query, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Get Discussions By Comments
 ```
-hive.api.getDiscussionsByComments(query, function(err, result) {
+blurt.api.getDiscussionsByComments(query, function(err, result) {
   console.log(err, result);
 });
 ```
@@ -170,43 +170,43 @@ hive.api.getDiscussionsByComments(query, function(err, result) {
 
 ### Get Block Header
 ```
-hive.api.getBlockHeader(blockNum, function(err, result) {
+blurt.api.getBlockHeader(blockNum, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Get Block
 ```
-hive.api.getBlock(blockNum, function(err, result) {
+blurt.api.getBlock(blockNum, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Get State
 ```
-hive.api.getState(path, function(err, result) {
+blurt.api.getState(path, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Get Trending Categories
 ```
-hive.api.getTrendingCategories(after, limit, function(err, result) {
+blurt.api.getTrendingCategories(after, limit, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Get Best Categories
 ```
-hive.api.getBestCategories(after, limit, function(err, result) {
+blurt.api.getBestCategories(after, limit, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Get Active Categories
 ```
-hive.api.getActiveCategories(after, limit, function(err, result) {
+blurt.api.getActiveCategories(after, limit, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Get Recent Categories
 ```
-hive.api.getRecentCategories(after, limit, function(err, result) {
+blurt.api.getRecentCategories(after, limit, function(err, result) {
   console.log(err, result);
 });
 ```
@@ -215,55 +215,55 @@ hive.api.getRecentCategories(after, limit, function(err, result) {
 
 ### Get Config
 ```
-hive.api.getConfig(function(err, result) {
+blurt.api.getConfig(function(err, result) {
   console.log(err, result);
 });
 ```
 ### Get Dynamic Global Properties
 ```
-hive.api.getDynamicGlobalProperties(function(err, result) {
+blurt.api.getDynamicGlobalProperties(function(err, result) {
   console.log(err, result);
 });
 ```
 ### Get Chain Properties
 ```
-hive.api.getChainProperties(function(err, result) {
+blurt.api.getChainProperties(function(err, result) {
   console.log(err, result);
 });
 ```
 ### Get Feed History
 ```
-hive.api.getFeedHistory(function(err, result) {
+blurt.api.getFeedHistory(function(err, result) {
   console.log(err, result);
 });
 ```
 ### Get Current Median History Price
 ```
-hive.api.getCurrentMedianHistoryPrice(function(err, result) {
+blurt.api.getCurrentMedianHistoryPrice(function(err, result) {
   console.log(err, result);
 });
 ```
 ### Get Hardfork Version
 ```
-hive.api.getHardforkVersion(function(err, result) {
+blurt.api.getHardforkVersion(function(err, result) {
   console.log(err, result);
 });
 ```
 ### Get Next Scheduled Hardfork
 ```
-hive.api.getNextScheduledHardfork(function(err, result) {
+blurt.api.getNextScheduledHardfork(function(err, result) {
   console.log(err, result);
 });
 ```
 ### Get Reward Fund
 ```
-hive.api.getRewardFund(name, function(err, result) {
+blurt.api.getRewardFund(name, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Get Vesting Delegations
 ```
-hive.api.getVestingDelegations(account, from, limit, function(err, result) {
+blurt.api.getVestingDelegations(account, from, limit, function(err, result) {
   console.log(err, result);
 });
 ```
@@ -272,7 +272,7 @@ hive.api.getVestingDelegations(account, from, limit, function(err, result) {
 
 ### Get Key References
 ```
-hive.api.getKeyReferences(key, function(err, result) {
+blurt.api.getKeyReferences(key, function(err, result) {
   console.log(err, result);
 });
 ```
@@ -281,76 +281,55 @@ hive.api.getKeyReferences(key, function(err, result) {
 
 ### Get Accounts
 ```
-hive.api.getAccounts(names, function(err, result) {
+blurt.api.getAccounts(names, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Get Account References
 ```
-hive.api.getAccountReferences(accountId, function(err, result) {
+blurt.api.getAccountReferences(accountId, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Lookup Account Names
 ```
-hive.api.lookupAccountNames(accountNames, function(err, result) {
+blurt.api.lookupAccountNames(accountNames, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Lookup Accounts
 ```
-hive.api.lookupAccounts(lowerBoundName, limit, function(err, result) {
+blurt.api.lookupAccounts(lowerBoundName, limit, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Get Account Count
 ```
-hive.api.getAccountCount(function(err, result) {
+blurt.api.getAccountCount(function(err, result) {
   console.log(err, result);
 });
 ```
 ### Get Conversion Requests
 ```
-hive.api.getConversionRequests(accountName, function(err, result) {
+blurt.api.getConversionRequests(accountName, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Get Account History
 ```
-hive.api.getAccountHistory(account, from, limit, function(err, result) {
+blurt.api.getAccountHistory(account, from, limit, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Get Owner History
 ```
-hive.api.getOwnerHistory(account, function(err, result) {
+blurt.api.getOwnerHistory(account, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Get Recovery Request
 ```
-hive.api.getRecoveryRequest(account, function(err, result) {
-  console.log(err, result);
-});
-```
-
-## Market
-
-### Get Order Book
-```
-hive.api.getOrderBook(limit, function(err, result) {
-  console.log(err, result);
-});
-```
-### Get Open Orders
-```
-hive.api.getOpenOrders(owner, function(err, result) {
-  console.log(err, result);
-});
-```
-### Get Liquidity Queue
-```
-hive.api.getLiquidityQueue(startAccount, limit, function(err, result) {
+blurt.api.getRecoveryRequest(account, function(err, result) {
   console.log(err, result);
 });
 ```
@@ -359,37 +338,37 @@ hive.api.getLiquidityQueue(startAccount, limit, function(err, result) {
 
 ### Get Transaction Hex
 ```
-hive.api.getTransactionHex(trx, function(err, result) {
+blurt.api.getTransactionHex(trx, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Get Transaction
 ```
-hive.api.getTransaction(trxId, function(err, result) {
+blurt.api.getTransaction(trxId, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Get Required Signatures
 ```
-hive.api.getRequiredSignatures(trx, availableKeys, function(err, result) {
+blurt.api.getRequiredSignatures(trx, availableKeys, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Get Potential Signatures
 ```
-hive.api.getPotentialSignatures(trx, function(err, result) {
+blurt.api.getPotentialSignatures(trx, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Verify Authority
 ```
-hive.api.verifyAuthority(trx, function(err, result) {
+blurt.api.verifyAuthority(trx, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Verify Account Authority
 ```
-hive.api.verifyAccountAuthority(nameOrId, signers, function(err, result) {
+blurt.api.verifyAccountAuthority(nameOrId, signers, function(err, result) {
   console.log(err, result);
 });
 ```
@@ -398,13 +377,13 @@ hive.api.verifyAccountAuthority(nameOrId, signers, function(err, result) {
 
 ### Get Active Votes
 ```
-hive.api.getActiveVotes(author, permlink, function(err, result) {
+blurt.api.getActiveVotes(author, permlink, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Get Account Votes
 ```
-hive.api.getAccountVotes(voter, function(err, result) {
+blurt.api.getAccountVotes(voter, function(err, result) {
   console.log(err, result);
 });
 ```
@@ -414,25 +393,25 @@ hive.api.getAccountVotes(voter, function(err, result) {
 
 ### Get Content
 ```
-hive.api.getContent(author, permlink, function(err, result) {
+blurt.api.getContent(author, permlink, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Get Content Replies
 ```
-hive.api.getContentReplies(author, permlink, function(err, result) {
+blurt.api.getContentReplies(author, permlink, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Get Discussions By Author Before Date
 ```
-hive.api.getDiscussionsByAuthorBeforeDate(author, startPermlink, beforeDate, limit, function(err, result) {
+blurt.api.getDiscussionsByAuthorBeforeDate(author, startPermlink, beforeDate, limit, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Get Replies By Last Update
 ```
-hive.api.getRepliesByLastUpdate(startAuthor, startPermlink, limit, function(err, result) {
+blurt.api.getRepliesByLastUpdate(startAuthor, startPermlink, limit, function(err, result) {
   console.log(err, result);
 });
 ```
@@ -442,43 +421,43 @@ hive.api.getRepliesByLastUpdate(startAuthor, startPermlink, limit, function(err,
 
 ### Get Witnesses
 ```
-hive.api.getWitnesses(witnessIds, function(err, result) {
+blurt.api.getWitnesses(witnessIds, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Get Witness By Account
 ```
-hive.api.getWitnessByAccount(accountName, function(err, result) {
+blurt.api.getWitnessByAccount(accountName, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Get Witnesses By Vote
 ```
-hive.api.getWitnessesByVote(from, limit, function(err, result) {
+blurt.api.getWitnessesByVote(from, limit, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Lookup Witness Accounts
 ```
-hive.api.lookupWitnessAccounts(lowerBoundName, limit, function(err, result) {
+blurt.api.lookupWitnessAccounts(lowerBoundName, limit, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Get Witness Count
 ```
-hive.api.getWitnessCount(function(err, result) {
+blurt.api.getWitnessCount(function(err, result) {
   console.log(err, result);
 });
 ```
 ### Get Active Witnesses
 ```
-hive.api.getActiveWitnesses(function(err, result) {
+blurt.api.getActiveWitnesses(function(err, result) {
   console.log(err, result);
 });
 ```
 ### Get Miner Queue
 ```
-hive.api.getMinerQueue(function(err, result) {
+blurt.api.getMinerQueue(function(err, result) {
   console.log(err, result);
 });
 ```
@@ -490,14 +469,14 @@ hive.api.getMinerQueue(function(err, result) {
 /!\ It's **not safe** to use this method with your username and password. This method always return `true` and is only used in intern with empty values to enable broadcast.
 
 ```
-hive.api.login('', '', function(err, result) {
+blurt.api.login('', '', function(err, result) {
   console.log(err, result);
 });
 ```
 
 ### Get Api By Name
 ```
-hive.api.getApiByName(apiName, function(err, result) {
+blurt.api.getApiByName(apiName, function(err, result) {
   console.log(err, result);
 });
 ```
@@ -506,19 +485,19 @@ hive.api.getApiByName(apiName, function(err, result) {
 
 ### Get Followers
 ```
-hive.api.getFollowers(following, startFollower, followType, limit, function(err, result) {
+blurt.api.getFollowers(following, startFollower, followType, limit, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Get Following
 ```
-hive.api.getFollowing(follower, startFollowing, followType, limit, function(err, result) {
+blurt.api.getFollowing(follower, startFollowing, followType, limit, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Get Follow Count
 ```
-hive.api.getFollowCount(account, function(err, result) {
+blurt.api.getFollowCount(account, function(err, result) {
   console.log(err, result);
 });
 ```
@@ -527,13 +506,13 @@ hive.api.getFollowCount(account, function(err, result) {
 
 ### Broadcast Transaction Synchronous
 ```
-hive.api.broadcastTransactionSynchronous(trx, function(err, result) {
+blurt.api.broadcastTransactionSynchronous(trx, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Broadcast Block
 ```
-hive.api.broadcastBlock(b, function(err, result) {
+blurt.api.broadcastBlock(b, function(err, result) {
   console.log(err, result);
 });
 ```
@@ -542,301 +521,230 @@ hive.api.broadcastBlock(b, function(err, result) {
 
 ### Account Create
 ```
-hive.broadcast.accountCreate(wif, fee, creator, newAccountName, owner, active, posting, memoKey, jsonMetadata, function(err, result) {
+blurt.broadcast.accountCreate(wif, fee, creator, newAccountName, owner, active, posting, memoKey, jsonMetadata, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Account Create With Delegation
 ```
-hive.broadcast.accountCreateWithDelegation(wif, fee, delegation, creator, newAccountName, owner, active, posting, memoKey, jsonMetadata, extensions, function(err, result) {
+blurt.broadcast.accountCreateWithDelegation(wif, fee, delegation, creator, newAccountName, owner, active, posting, memoKey, jsonMetadata, extensions, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Delegate Vesting Shares
 ```
-hive.broadcast.delegateVestingShares(wif, delegator, delegatee, vesting_shares, function(err, result) {
+blurt.broadcast.delegateVestingShares(wif, delegator, delegatee, vesting_shares, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Account Update
 ```
-hive.broadcast.accountUpdate(wif, account, owner, active, posting, memoKey, jsonMetadata, function(err, result) {
+blurt.broadcast.accountUpdate(wif, account, owner, active, posting, memoKey, jsonMetadata, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Account Witness Proxy
 ```
-hive.broadcast.accountWitnessProxy(wif, account, proxy, function(err, result) {
+blurt.broadcast.accountWitnessProxy(wif, account, proxy, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Account Witness Vote
 ```
-hive.broadcast.accountWitnessVote(wif, account, witness, approve, function(err, result) {
+blurt.broadcast.accountWitnessVote(wif, account, witness, approve, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Challenge Authority
 ```
-hive.broadcast.challengeAuthority(wif, challenger, challenged, requireOwner, function(err, result) {
+blurt.broadcast.challengeAuthority(wif, challenger, challenged, requireOwner, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Change Recovery Account
 ```
-hive.broadcast.changeRecoveryAccount(wif, accountToRecover, newRecoveryAccount, extensions, function(err, result) {
+blurt.broadcast.changeRecoveryAccount(wif, accountToRecover, newRecoveryAccount, extensions, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Comment
 ```
-hive.broadcast.comment(wif, parentAuthor, parentPermlink, author, permlink, title, body, jsonMetadata, function(err, result) {
+blurt.broadcast.comment(wif, parentAuthor, parentPermlink, author, permlink, title, body, jsonMetadata, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Comment Options
 ```
-hive.broadcast.commentOptions(wif, author, permlink, maxAcceptedPayout, percentHiveDollars, allowVotes, allowCurationRewards, extensions, function(err, result) {
+blurt.broadcast.commentOptions(wif, author, permlink, maxAcceptedPayout, percentHiveDollars, allowVotes, allowCurationRewards, extensions, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Comment Payout
 ```
-hive.broadcast.commentPayout(wif, author, permlink, payout, function(err, result) {
+blurt.broadcast.commentPayout(wif, author, permlink, payout, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Comment Reward
 ```
-hive.broadcast.commentReward(wif, author, permlink, hbdPayout, vestingPayout, function(err, result) {
-  console.log(err, result);
-});
-```
-### Convert
-```
-hive.broadcast.convert(wif, owner, requestid, amount, function(err, result) {
+blurt.broadcast.commentReward(wif, author, permlink, hbdPayout, vestingPayout, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Curate Reward
 ```
-hive.broadcast.curateReward(wif, curator, reward, commentAuthor, commentPermlink, function(err, result) {
+blurt.broadcast.curateReward(wif, curator, reward, commentAuthor, commentPermlink, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Custom
 ```
-hive.broadcast.custom(wif, requiredAuths, id, data, function(err, result) {
+blurt.broadcast.custom(wif, requiredAuths, id, data, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Custom Binary
 ```
-hive.broadcast.customBinary(wif, id, data, function(err, result) {
+blurt.broadcast.customBinary(wif, id, data, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Custom Json
 ```
-hive.broadcast.customJson(wif, requiredAuths, requiredPostingAuths, id, json, function(err, result) {
+blurt.broadcast.customJson(wif, requiredAuths, requiredPostingAuths, id, json, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Delete Comment
 ```
-hive.broadcast.deleteComment(wif, author, permlink, function(err, result) {
+blurt.broadcast.deleteComment(wif, author, permlink, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Escrow Dispute
 ```
-hive.broadcast.escrowDispute(wif, from, to, agent, who, escrowId, function(err, result) {
+blurt.broadcast.escrowDispute(wif, from, to, agent, who, escrowId, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Escrow Release
 ```
-hive.broadcast.escrowRelease(wif, from, to, agent, who, receiver, escrowId, hbdAmount, hiveAmount, function(err, result) {
+blurt.broadcast.escrowRelease(wif, from, to, agent, who, receiver, escrowId, hbdAmount, hiveAmount, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Escrow Transfer
 ```
-hive.broadcast.escrowTransfer(wif, from, to, agent, escrowId, hbdAmount, hiveAmount, fee, ratificationDeadline, escrowExpiration, jsonMeta, function(err, result) {
-  console.log(err, result);
-});
-```
-### Feed Publish
-```
-hive.broadcast.feedPublish(wif, publisher, exchangeRate, function(err, result) {
-  console.log(err, result);
-});
-```
-### Pow2
-```
-hive.broadcast.pow2(wif, work, newOwnerKey, props, function(err, result) {
-  console.log(err, result);
-});
-```
-### Fill Convert Request
-```
-hive.broadcast.fillConvertRequest(wif, owner, requestid, amountIn, amountOut, function(err, result) {
-  console.log(err, result);
-});
-```
-### Fill Order
-```
-hive.broadcast.fillOrder(wif, currentOwner, currentOrderid, currentPays, openOwner, openOrderid, openPays, function(err, result) {
+blurt.broadcast.escrowTransfer(wif, from, to, agent, escrowId, hbdAmount, hiveAmount, fee, ratificationDeadline, escrowExpiration, jsonMeta, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Fill Vesting Withdraw
 ```
-hive.broadcast.fillVestingWithdraw(wif, fromAccount, toAccount, withdrawn, deposited, function(err, result) {
+blurt.broadcast.fillVestingWithdraw(wif, fromAccount, toAccount, withdrawn, deposited, function(err, result) {
   console.log(err, result);
 });
 ```
-### Interest
-```
-hive.broadcast.interest(wif, owner, interest, function(err, result) {
-  console.log(err, result);
-});
-```
-### Limit Order Cancel
-```
-hive.broadcast.limitOrderCancel(wif, owner, orderid, function(err, result) {
-  console.log(err, result);
-});
-```
-### Limit Order Create
-```
-hive.broadcast.limitOrderCreate(wif, owner, orderid, amountToSell, minToReceive, fillOrKill, expiration, function(err, result) {
-  console.log(err, result);
-});
-```
-### Limit Order Create2
-```
-hive.broadcast.limitOrderCreate2(wif, owner, orderid, amountToSell, exchangeRate, fillOrKill, expiration, function(err, result) {
-  console.log(err, result);
-});
-```
-### Liquidity Reward
-```
-hive.broadcast.liquidityReward(wif, owner, payout, function(err, result) {
-  console.log(err, result);
-});
-```
-### Pow
-```
-hive.broadcast.pow(wif, worker, input, signature, work, function(err, result) {
-  console.log(err, result);
-});
-```
+
 ### Prove Authority
 ```
-hive.broadcast.proveAuthority(wif, challenged, requireOwner, function(err, result) {
+blurt.broadcast.proveAuthority(wif, challenged, requireOwner, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Recover Account
 ```
-hive.broadcast.recoverAccount(wif, accountToRecover, newOwnerAuthority, recentOwnerAuthority, extensions, function(err, result) {
+blurt.broadcast.recoverAccount(wif, accountToRecover, newOwnerAuthority, recentOwnerAuthority, extensions, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Report Over Production
 ```
-hive.broadcast.reportOverProduction(wif, reporter, firstBlock, secondBlock, function(err, result) {
+blurt.broadcast.reportOverProduction(wif, reporter, firstBlock, secondBlock, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Request Account Recovery
 ```
-hive.broadcast.requestAccountRecovery(wif, recoveryAccount, accountToRecover, newOwnerAuthority, extensions, function(err, result) {
+blurt.broadcast.requestAccountRecovery(wif, recoveryAccount, accountToRecover, newOwnerAuthority, extensions, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Escrow Approve
 ```
-hive.broadcast.escrowApprove(wif, from, to, agent, who, escrowId, approve, function(err, result) {
+blurt.broadcast.escrowApprove(wif, from, to, agent, who, escrowId, approve, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Set Withdraw Vesting Route
 ```
-hive.broadcast.setWithdrawVestingRoute(wif, fromAccount, toAccount, percent, autoVest, function(err, result) {
+blurt.broadcast.setWithdrawVestingRoute(wif, fromAccount, toAccount, percent, autoVest, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Transfer
 ```
-hive.broadcast.transfer(wif, from, to, amount, memo, function(err, result) {
+blurt.broadcast.transfer(wif, from, to, amount, memo, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Transfer To Vesting
 ```
-hive.broadcast.transferToVesting(wif, from, to, amount, function(err, result) {
+blurt.broadcast.transferToVesting(wif, from, to, amount, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Vote
 ```
-hive.broadcast.vote(wif, voter, author, permlink, weight, function(err, result) {
+blurt.broadcast.vote(wif, voter, author, permlink, weight, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Withdraw Vesting
 ```
-hive.broadcast.withdrawVesting(wif, account, vestingShares, function(err, result) {
+blurt.broadcast.withdrawVesting(wif, account, vestingShares, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Witness Update
 ```
-hive.broadcast.witnessUpdate(wif, owner, url, blockSigningKey, props, fee, function(err, result) {
+blurt.broadcast.witnessUpdate(wif, owner, url, blockSigningKey, props, fee, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Fill Vesting Withdraw
 ```
-hive.broadcast.fillVestingWithdraw(wif, fromAccount, toAccount, withdrawn, deposited, function(err, result) {
-  console.log(err, result);
-});
-```
-### Fill Order
-```
-hive.broadcast.fillOrder(wif, currentOwner, currentOrderid, currentPays, openOwner, openOrderid, openPays, function(err, result) {
+blurt.broadcast.fillVestingWithdraw(wif, fromAccount, toAccount, withdrawn, deposited, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Fill Transfer From Savings
 ```
-hive.broadcast.fillTransferFromSavings(wif, from, to, amount, requestId, memo, function(err, result) {
+blurt.broadcast.fillTransferFromSavings(wif, from, to, amount, requestId, memo, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Comment Payout
 ```
-hive.broadcast.commentPayout(wif, author, permlink, payout, function(err, result) {
+blurt.broadcast.commentPayout(wif, author, permlink, payout, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Transfer To Savings
 ```
-hive.broadcast.transferToSavings(wif, from, to, amount, memo, function(err, result) {
+blurt.broadcast.transferToSavings(wif, from, to, amount, memo, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Transfer From Savings
 ```
-hive.broadcast.transferFromSavings(wif, from, requestId, to, amount, memo, function(err, result) {
+blurt.broadcast.transferFromSavings(wif, from, requestId, to, amount, memo, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Cancel Transfer From Savings
 ```
-hive.broadcast.cancelTransferFromSavings(wif, from, requestId, function(err, result) {
+blurt.broadcast.cancelTransferFromSavings(wif, from, requestId, function(err, result) {
   console.log(err, result);
 });
 ```
@@ -844,7 +752,7 @@ hive.broadcast.cancelTransferFromSavings(wif, from, requestId, function(err, res
 ### Multisig
 You can use multisignature to broadcast an operation.
 ```
-hive.broadcast.send({
+blurt.broadcast.send({
   extensions: [],
   operations: [
     ['vote', {
@@ -862,49 +770,49 @@ hive.broadcast.send({
 
 ### Verify
 ```
-hive.auth.verify(name, password, auths);
+blurt.auth.verify(name, password, auths);
 ```
 
 ### Generate Keys
 ```
-hive.auth.generateKeys(name, password, roles);
+blurt.auth.generateKeys(name, password, roles);
 ```
 
 ### Get Private Keys
 ```
-hive.auth.getPrivateKeys(name, password, roles);
+blurt.auth.getPrivateKeys(name, password, roles);
 ```
 
 ### Is Wif
 ```
-hive.auth.isWif(privWif);
+blurt.auth.isWif(privWif);
 ```
 
 ### To Wif
 ```
-hive.auth.toWif(name, password, role);
+blurt.auth.toWif(name, password, role);
 ```
 
 ### Wif Is Valid
 ```
-hive.auth.wifIsValid(privWif, pubWif);
+blurt.auth.wifIsValid(privWif, pubWif);
 ```
 
 ### Wif To Public
 ```
-hive.auth.wifToPublic(privWif);
+blurt.auth.wifToPublic(privWif);
 ```
 
 ### Sign Transaction
 ```
-hive.auth.signTransaction(trx, keys);
+blurt.auth.signTransaction(trx, keys);
 ```
 
 # Formatter
 
 ### Create Suggested Password
 ```
-var password = hive.formatter.createSuggestedPassword();
+var password = blurt.formatter.createSuggestedPassword();
 console.log(password);
 // => 'GAz3GYFvvQvgm7t2fQmwMDuXEzDqTzn9'
 ```
@@ -919,23 +827,23 @@ console.log(commentPermlink);
 
 ### Estimate Account Value
 ```
-var hivePower = hive.formatter.estimateAccountValue(account);
+var hivePower = blurt.formatter.estimateAccountValue(account);
 ```
 
 ### Reputation
 ```
-var reputation = hive.formatter.reputation(3512485230915);
+var reputation = blurt.formatter.reputation(3512485230915);
 console.log(reputation);
 // => 56
 ```
 
-### Vest To Hive
+### Vest To Blurt
 
 **Warning:** hive.formatter.vestToSteem() is deprecated and will be removed in the future releases.
 Use the following method instead:
 
 ```
-var hivePower = hive.formatter.vestToHive(vestingShares, totalVestingShares, totalVestingFundHive);
+var hivePower = blurt.formatter.vestToSteem(vestingShares, totalVestingShares, totalVestingFundHive);
 console.log(hivePower);
 ```
 
@@ -943,11 +851,11 @@ console.log(hivePower);
 
 ### Validate Username
 ```
-var isValidUsername = hive.utils.validateAccountName('test1234');
+var isValidUsername = blurt.utils.validateAccountName('test1234');
 console.log(isValidUsername);
 // => 'null'
 
-var isValidUsername = hive.utils.validateAccountName('a1');
+var isValidUsername = blurt.utils.validateAccountName('a1');
 console.log(isValidUsername);
 // => 'Account name should be longer.'
 ```

@@ -12,20 +12,6 @@ sed 's/steemit_protocol_//g' > tmp.coffee
 */
 // coffee tmp.coffee # fix errors until you see: `ChainTypes is not defined`
 
-/*
-
-   remove these 7 lines from tmp.coffee:
-
-static_variant [
-    pow2
-    equihash_pow
-] = static_variant [
-    pow2
-    equihash_pow
-]
-
-*/
-
 // npm i -g decaffeinate
 // decaffeinate tmp.coffee
 
@@ -84,47 +70,6 @@ const votable_asset_options = new Serializer(
 
 const allowed_vote_assets = new Serializer(1, {
   votable_assets: map((asset_symbol), (votable_asset_options))
-});
-
-const smt_generation_unit = new Serializer(
-  "smt_generation_unit", {
-  steem_unit: map((string), (uint16)),
-  token_unit: map((string), (uint16))
-});
-
-const smt_capped_generation_policy = new Serializer(0, {
-  generation_unit: smt_generation_unit,
-  extensions: set(future_extensions)
-});
-
-const smt_emissions_unit = new Serializer(
-  "smt_emissions_unit", {
-  token_unit: map((string), (uint16))
-});
-
-const smt_param_allow_voting = new Serializer(0, {
-  value: bool
-});
-
-const smt_param_windows_v1 = new Serializer(0, {
-  cashout_window_seconds: uint32,
-  reverse_auction_window_seconds: uint32
-});
-
-const smt_param_vote_regeneration_period_seconds_v1 = new Serializer(1, {
-    vote_regeneration_period_seconds: uint32,
-    votes_per_regeneration_period: uint32
-});
-
-const smt_param_rewards_v1 = new Serializer(2, {
-  content_constant: uint128,
-  percent_curation_rewards: uint16,
-  author_reward_curve: int64,
-  curation_reward_curve: int64
-});
-
-const smt_param_allow_downvotes = new Serializer(3, {
-  value: bool
 });
 
 // Custom-types after Generated code
@@ -256,43 +201,10 @@ let withdraw_vesting = new Serializer(
 }
 );
 
-let limit_order_create = new Serializer(
-    "limit_order_create", {
-    owner: string,
-    orderid: uint32,
-    amount_to_sell: asset,
-    min_to_receive: asset,
-    fill_or_kill: bool,
-    expiration: time_point_sec
-}
-);
-
-let limit_order_cancel = new Serializer(
-    "limit_order_cancel", {
-    owner: string,
-    orderid: uint32
-}
-);
-
 let price = new Serializer(
     "price", {
     base: asset,
     quote: asset
-}
-);
-
-let feed_publish = new Serializer(
-    "feed_publish", {
-    publisher: string,
-    exchange_rate: price
-}
-);
-
-let convert = new Serializer(
-    "convert", {
-    owner: string,
-    requestid: uint32,
-    amount: asset
 }
 );
 
@@ -323,16 +235,17 @@ let account_update = new Serializer(
     owner: optional(authority),
     active: optional(authority),
     posting: optional(authority),
-    memo_key: public_key,
-    json_metadata: string
+    memo_key: optional(public_key),
+    json_metadata: string,
+    posting_json_metadata: string,
+    extensions: set(future_extensions)
 }
 );
 
 let chain_properties = new Serializer(
     "chain_properties", {
     account_creation_fee: asset,
-    maximum_block_size: uint32,
-    sbd_interest_rate: uint16
+    maximum_block_size: uint32
 }
 );
 
@@ -361,28 +274,11 @@ let account_witness_proxy = new Serializer(
 }
 );
 
-let pow = new Serializer(
-    "pow", {
-    worker: public_key,
-    input: bytes(32),
-    signature: bytes(65),
-    work: bytes(32)
-}
-);
-
 let custom = new Serializer(
     "custom", {
     required_auths: set(string),
     id: uint16,
     data: bytes()
-}
-);
-
-let report_over_production = new Serializer(
-    "report_over_production", {
-    reporter: string,
-    first_block: signed_block_header,
-    second_block: signed_block_header
 }
 );
 
@@ -407,7 +303,6 @@ let comment_options = new Serializer(
     author: string,
     permlink: string,
     max_accepted_payout: asset,
-    percent_steem_dollars: uint16,
     allow_votes: bool,
     allow_curation_rewards: bool,
     extensions: set(static_variant([
@@ -423,17 +318,6 @@ let set_withdraw_vesting_route = new Serializer(
     to_account: string,
     percent: uint16,
     auto_vest: bool
-}
-);
-
-let limit_order_create2 = new Serializer(
-    "limit_order_create2", {
-    owner: string,
-    orderid: uint32,
-    amount_to_sell: asset,
-    exchange_rate: price,
-    fill_or_kill: bool,
-    expiration: time_point_sec
 }
 );
 
@@ -488,14 +372,13 @@ let escrow_transfer = new Serializer(
     "escrow_transfer", {
     from: string,
     to: string,
-    sbd_amount: asset,
-    steem_amount: asset,
-    escrow_id: uint32,
     agent: string,
+    escrow_id: uint32,
+    blurt_amount: asset,
     fee: asset,
-    json_meta: string,
     ratification_deadline: time_point_sec,
-    escrow_expiration: time_point_sec
+    escrow_expiration: time_point_sec,
+    json_meta: string
 }
 );
 
@@ -517,41 +400,7 @@ let escrow_release = new Serializer(
     who: string,
     receiver: string,
     escrow_id: uint32,
-    sbd_amount: asset,
-    steem_amount: asset
-}
-);
-
-let pow2_input = new Serializer(
-    "pow2_input", {
-    worker_account: string,
-    prev_block: bytes(20),
-    nonce: uint64
-}
-);
-
-let pow2 = new Serializer(
-    "pow2", {
-    input: pow2_input,
-    pow_summary: uint32
-}
-);
-
-let equihash_proof = new Serializer(
-    "equihash_proof", {
-    n: uint32,
-    k: uint32,
-    seed: bytes(32),
-    inputs: array(uint32)
-}
-);
-
-let equihash_pow = new Serializer(
-    "equihash_pow", {
-    input: pow2_input,
-    proof: equihash_proof,
-    prev_block: bytes(20),
-    pow_summary: uint32
+    blurt_amount: asset
 }
 );
 
@@ -629,8 +478,7 @@ let set_reset_account = new Serializer(
 let claim_reward_balance = new Serializer(
     "claim_reward_balance", {
     account: string,
-    reward_steem: asset,
-    reward_sbd: asset,
+    reward_blurt: asset,
     reward_vests: asset
 }
 );
@@ -643,38 +491,10 @@ let delegate_vesting_shares = new Serializer(
 }
 );
 
-let account_create_with_delegation = new Serializer(
-    "account_create_with_delegation", {
-    fee: asset,
-    delegation: asset,
-    creator: string,
-    new_account_name: string,
-    owner: authority,
-    active: authority,
-    posting: authority,
-    memo_key: public_key,
-    json_metadata: string,
-    extensions: set(future_extensions)
-}
-);
-
 let witness_set_properties = new Serializer(
     "witness_set_properties", {
     owner: string,
     props: string,
-    extensions: set(future_extensions)
-}
-);
-
-let account_update2 = new Serializer(
-    "account_update2", {
-    account: string,
-    owner: optional(authority),
-    active: optional(authority),
-    posting: optional(authority),
-    memo_key: optional(public_key),
-    json_metadata: string,
-    posting_json_metadata: string,
     extensions: set(future_extensions)
 }
 );
@@ -692,6 +512,14 @@ let create_proposal = new Serializer(
 }
 );
 
+let remove_proposal = new Serializer(
+  "remove_proposal", {
+  proposal_owner: string,
+  proposal_ids: array(uint64),
+  extensions: set(future_extensions)
+}
+);
+
 let update_proposal_votes = new Serializer(
   "update_proposal_votes", {
   voter: string,
@@ -701,141 +529,11 @@ let update_proposal_votes = new Serializer(
 }
 );
 
-let remove_proposal = new Serializer(
-  "remove_proposal", {
-  proposal_owner: string,
-  proposal_ids: array(uint64),
-  extensions: set(future_extensions)
-}
-);
-
-let claim_reward_balance2 = new Serializer(
-  "claim_reward_balance2", {
-  account: string,
-  reward_tokens: array(asset),
-  extensions: set(future_extensions)
-}
-);
-
-let vote2 = new Serializer(
-  "vote2", {
-  voter: string,
-  author: string,
-  permlink: string,
-  rshares: map((asset_symbol), (int64)),
-  extensions: set(future_extensions)
-}
-);
-
-let smt_create = new Serializer(
-  "smt_create", {
-  control_account: string,
-  symbol: asset_symbol,
-  smt_creation_fee: asset,
-  precision: uint8,
-  extensions: set(future_extensions)
-}
-);
-
-let smt_setup = new Serializer(
-  "smt_setup", {
-  control_account: string,
-  symbol: asset_symbol,
-  max_supply: int64,
-  contribution_begin_time: time_point_sec,
-  contribution_end_time: time_point_sec,
-  launch_time: time_point_sec,
-  steem_units_min: int64,
-  min_unit_ratio: uint32,
-  max_unit_ratio: uint32,
-  extensions: set(future_extensions)
-}
-);
-
-let smt_setup_emissions = new Serializer(
-  "smt_setup_emissions", {
-  control_account: string,
-  symbol: asset_symbol,
-  schedule_time: time_point_sec,
-  emissions_unit: smt_emissions_unit,
-  interval_seconds: uint32,
-  emission_count: uint32,
-  lep_time: time_point_sec,
-  rep_time: time_point_sec,
-  lep_abs_amount: int64,
-  rep_abs_amount: int64,
-  lep_rel_amount_numerator: uint32,
-  rep_rel_amount_numerator: uint32,
-  rel_amount_denom_bits: uint8,
-  remove: bool,
-  floor_emissions: bool,
-  extensions: set(future_extensions)
-}
-);
-
-let smt_setup_ico_tier = new Serializer(
-    "smt_setup_ico_tier", {
-    control_account: string,
-    symbol: asset_symbol,
-    steem_units_cap: int64,
-    generation_policy: static_variant([
-        smt_capped_generation_policy
-    ]),
-    remove: bool,
-    extensions: set(future_extensions)
-  }
-  );
-
-let smt_set_setup_parameters = new Serializer(
-  "smt_set_setup_parameters", {
-  control_account: string,
-  symbol: asset_symbol,
-  setup_parameters: set(static_variant([
-    smt_param_allow_voting
-  ])),
-  extensions: set(future_extensions)
-}
-);
-
-let smt_set_runtime_parameters = new Serializer(
-  "smt_set_runtime_parameters", {
-  control_account: string,
-  symbol: asset_symbol,
-  runtime_parameters: set(static_variant([
-    smt_param_windows_v1,
-    smt_param_vote_regeneration_period_seconds_v1,
-    smt_param_rewards_v1,
-    smt_param_allow_downvotes
-  ])),
-  extensions: set(future_extensions)
-}
-);
-
-let smt_contribute = new Serializer(
-  "smt_contribute", {
-  contributor: string,
-  symbol: asset_symbol,
-  contribution_id: uint32,
-  contribution: asset,
-  extensions: set(future_extensions)
-}
-);
-
-let fill_convert_request = new Serializer(
-    "fill_convert_request", {
-    owner: string,
-    requestid: uint32,
-    amount_in: asset,
-    amount_out: asset
-}
-);
-
 let author_reward = new Serializer(
     "author_reward", {
     author: string,
     permlink: string,
-    sbd_payout: asset,
-    steem_payout: asset,
+    blurt_payout: asset,
     vesting_payout: asset
 }
 );
@@ -857,37 +555,12 @@ let comment_reward = new Serializer(
 }
 );
 
-let liquidity_reward = new Serializer(
-    "liquidity_reward", {
-    owner: string,
-    payout: asset
-}
-);
-
-let interest = new Serializer(
-    "interest", {
-    owner: string,
-    interest: asset
-}
-);
-
 let fill_vesting_withdraw = new Serializer(
     "fill_vesting_withdraw", {
     from_account: string,
     to_account: string,
     withdrawn: asset,
     deposited: asset
-}
-);
-
-let fill_order = new Serializer(
-    "fill_order", {
-    current_owner: string,
-    current_orderid: uint32,
-    current_pays: asset,
-    open_owner: string,
-    open_orderid: uint32,
-    open_pays: asset
 }
 );
 
@@ -940,23 +613,16 @@ operation.st_operations = [
     transfer,
     transfer_to_vesting,
     withdraw_vesting,
-    limit_order_create,
-    limit_order_cancel,
-    feed_publish,
-    convert,
     account_create,
     account_update,
     witness_update,
     account_witness_vote,
     account_witness_proxy,
-    pow,
     custom,
-    report_over_production,
     delete_comment,
     custom_json,
     comment_options,
     set_withdraw_vesting_route,
-    limit_order_create2,
     claim_account,
     create_claimed_account,
     request_account_recovery,
@@ -965,7 +631,6 @@ operation.st_operations = [
     escrow_transfer,
     escrow_dispute,
     escrow_release,
-    pow2,
     escrow_approve,
     transfer_to_savings,
     transfer_from_savings,
@@ -976,29 +641,14 @@ operation.st_operations = [
     set_reset_account,
     claim_reward_balance,
     delegate_vesting_shares,
-    account_create_with_delegation,
     witness_set_properties,
-    account_update2,
     create_proposal,
     update_proposal_votes,
     remove_proposal,
-    claim_reward_balance2,
-    vote2,
-    smt_setup,
-    smt_setup_emissions,
-    smt_setup_ico_tier,
-    smt_set_setup_parameters,
-    smt_set_runtime_parameters,
-    smt_create,
-    smt_contribute,
-    fill_convert_request,
     author_reward,
     curation_reward,
     comment_reward,
-    liquidity_reward,
-    interest,
     fill_vesting_withdraw,
-    fill_order,
     shutdown_witness,
     fill_transfer_from_savings,
     hardfork,

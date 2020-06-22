@@ -1,9 +1,9 @@
-const hive = require('../lib');
+const blurt = require('../lib');
 
 const username = 'guest123';
 const wif = '5JRaypasxMx1L97ZUX7YuC5Psb5EAbF821kkAGtBj7xCJFQcbLg';
 
-hive
+blurt
   .broadcast
   .vote(
     wif,

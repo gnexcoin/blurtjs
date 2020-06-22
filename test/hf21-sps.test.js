@@ -3,8 +3,8 @@ import Promise from 'bluebird';
 import should from 'should';
 import steem from '../src';
 
-const username = process.env.STEEM_USERNAME || 'guest123';
-const password = process.env.STEEM_PASSWORD;
+const username = process.env.BLURT_USERNAME || 'guest123';
+const password = process.env.BLURT_PASSWORD;
 const activeWif = steem.auth.toWif(username, password, 'active');
 
 describe('steem.hf21-accounts:', () => {
@@ -33,7 +33,7 @@ describe('steem.hf21-accounts:', () => {
             'receiver': username,
             'start_date': '2019-09-01T00:00:00',
             'end_date': '2019-10-01T00:00:00',
-            'daily_pay': '1.000 SBD',
+            'daily_pay': '1.000 BLURT',
             'subject': 'testing',
             'permlink': permlink
         }]]
