@@ -2,8 +2,8 @@ import Promise from 'bluebird';
 import should from 'should';
 import steem from '../src';
 
-const username = process.env.STEEM_USERNAME || 'guest123';
-const password = process.env.STEEM_PASSWORD;
+const username = process.env.BLURT_USERNAME || 'guest123';
+const password = process.env.BLURT_PASSWORD;
 const activeWif = steem.auth.toWif(username, password, 'active');
 
 describe('steem.hf20-accounts:', () => {
@@ -27,7 +27,7 @@ describe('steem.hf20-accounts:', () => {
         'operations': [[
           'claim_account', {
             'creator': username,
-            'fee': '0.000 STEEM'}]]
+            'fee': '0.000 BLURT'}]]
       }
 
       steem.api.callAsync('condenser_api.get_version', []).then((result) => {
@@ -50,7 +50,7 @@ describe('steem.hf20-accounts:', () => {
       steem.api.callAsync('condenser_api.get_version', []).then((result) => {
         if(result['blockchain_version'] < '0.22.0') return done();
 
-        steem.broadcast.claimAccountAsync(activeWif, username, '0.000 STEEM', []).then((result) => {
+        steem.broadcast.claimAccountAsync(activeWif, username, '0.000 BLURT', []).then((result) => {
             let newAccountName = username + '-' + Math.floor(Math.random() * 10000);
             let keys = steem.auth.generateKeys(
                 username, password, ['posting', 'active', 'owner', 'memo']);

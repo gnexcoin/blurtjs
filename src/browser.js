@@ -6,7 +6,7 @@ const config = require("./config");
 const formatter = require("./formatter")(api);
 const utils = require("./utils");
 
-const hive = {
+const blurt = {
   api,
   auth,
   memo,
@@ -17,11 +17,11 @@ const hive = {
 };
 
 if (typeof window !== "undefined") {
-  window.hive = hive;
+  window.blurt = blurt;
 }
 
 if (typeof global !== "undefined") {
-  global.hive = hive;
+  global.blurt = blurt;
 }
 
-exports = module.exports = hive;
+exports = module.exports = blurt;

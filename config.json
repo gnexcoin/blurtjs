@@ -1,12 +1,12 @@
 {
   "transport": "http",
-  "websocket": "wss://api.hive.blog:8090",
-  "uri": "https://api.hive.blog",
-  "url": "https://api.hive.blog",
+  "websocket": "wss://test.blurt.world/rpc",
+  "uri": "https://test.blurt.world/rpc",
+  "url": "https://test.blurt.world/rpc",
   "dev_uri": "",
   "stage_uri": "",
-  "address_prefix": "STM",
-  "chain_id": "0000000000000000000000000000000000000000000000000000000000000000",
-  "alternative_api_endpoints": ["https://api.hive.blog", "https://anyx.io"],
+  "address_prefix": "BLT",
+  "chain_id": "afa547e2e0adef898219d7f74abf36e6e957460a70120db21a03fed76cc0e8b6",
+  "alternative_api_endpoints": ["https://test.blurt.world/rpc", "https://test.blurt.world/rpc"],
   "failover_threshold": 3
 }

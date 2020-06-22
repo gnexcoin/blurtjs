@@ -1,5 +1,5 @@
-# `hive-js` webpack configuration example
-This is a demo of `hive-js` and webpack usage targetting both the Web and
+# `blurt-js` webpack configuration example
+This is a demo of `blurt-js` and webpack usage targetting both the Web and
 Node.js platforms.
 
 ## Compiling the example

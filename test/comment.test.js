@@ -3,8 +3,8 @@ import should from 'should';
 import steem from '../src';
 import pkg from '../package.json';
 
-const username = process.env.STEEM_USERNAME || 'guest123';
-const password = process.env.STEEM_PASSWORD;
+const username = process.env.BLURT_USERNAME || 'guest123';
+const password = process.env.BLURT_PASSWORD;
 const postingWif = password
   ? steem.auth.toWif(username, password, 'posting')
   : '5JRaypasxMx1L97ZUX7YuC5Psb5EAbF821kkAGtBj7xCJFQcbLg';
@@ -36,7 +36,7 @@ describe('steem.broadcast:', () => {
         ['comment_options', {
           author: username,
           permlink,
-          max_accepted_payout: '1000000.000 SBD',
+          max_accepted_payout: '1000000.000 BLURT',
           percent_steem_dollars: 10000,
           allow_votes: true,
           allow_curation_rewards: true,

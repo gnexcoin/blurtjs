@@ -197,7 +197,7 @@ class Steem extends EventEmitter {
         this.transport.setOptions(options);
         if( options.hasOwnProperty('useTestNet') )
         {
-          config.set( 'address_prefix', options.useTestNet ? 'TST' : 'STM' )
+          config.set( 'address_prefix', options.useTestNet ? 'TST' : 'BLT' )
         }
 
         if (options.hasOwnProperty('url'))
