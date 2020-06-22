@@ -456,42 +456,6 @@ export default [
       "params": ["maxBlockAge"]
     },
     {
-      "api": "market_history_api",
-      "method": "get_ticker",
-      "params": []
-    },
-    {
-      "api": "market_history_api",
-      "method": "get_volume",
-      "params": []
-    },
-    {
-      "api": "market_history_api",
-      "method": "get_order_book",
-      "method_name": "getMarketOrderBook",
-      "params": ["limit"]
-    },
-    {
-      "api": "market_history_api",
-      "method": "get_trade_history",
-      "params": ["start", "end", "limit"]
-    },
-    {
-      "api": "market_history_api",
-      "method": "get_recent_trades",
-      "params": ["limit"]
-    },
-    {
-      "api": "market_history_api",
-      "method": "get_market_history",
-      "params": ["bucket_seconds", "start", "end"]
-    },
-    {
-      "api": "market_history_api",
-      "method": "get_market_history_buckets",
-      "params": []
-    },
-    {
       "api": "database_api",
       "method": "find_proposals",
       "params": ["id_set"]

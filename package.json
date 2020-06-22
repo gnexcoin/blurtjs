@@ -1,5 +1,5 @@
 {
-  "name": "@openblurt/blurtjs",
+  "name": "@blurtfoundation/blurtjs",
   "version": "0.1.0",
   "description": "Blurt.js the JavaScript API for Blurt blockchain",
   "main": "lib/index.js",
