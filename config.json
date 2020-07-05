@@ -1,12 +1,12 @@
 {
   "transport": "http",
-  "websocket": "wss://test.blurt.world/rpc",
-  "uri": "https://test.blurt.world/rpc",
-  "url": "https://test.blurt.world/rpc",
-  "dev_uri": "",
-  "stage_uri": "",
+  "websocket": "wss://rpc.blurt.world",
+  "uri": "https://rpc.blurt.world",
+  "url": "https://rpc.blurt.world",
+  "dev_uri": "https://test.blurt.world/rpc",
+  "stage_uri": "https://test.blurt.world/rpc",
   "address_prefix": "BLT",
-  "chain_id": "afa547e2e0adef898219d7f74abf36e6e957460a70120db21a03fed76cc0e8b6",
-  "alternative_api_endpoints": ["https://test.blurt.world/rpc", "https://test.blurt.world/rpc"],
+  "chain_id": "cd8d90f29ae273abec3eaa7731e25934c63eb654d55080caff2ebb7f5df6381f",
+  "alternative_api_endpoints": ["https://rpc.blurt.world", "https://rpc.blurt.world"],
   "failover_threshold": 3
 }

@@ -42,10 +42,10 @@ blurt.api.getAccounts(['mahdiyari', 'hiveio'], function(err, response){
 Default config should work with Hive. However you can change default config.
 as 
 ```js
-blurt.api.setOptions({ url: 'https://anyx.io' });
+blurt.api.setOptions({ url: 'https://rpc.blurt.world' });
 blurt.config.set('address_prefix','BLT');
-blurt.config.set('chain_id','afa547e2e0adef898219d7f74abf36e6e957460a70120db21a03fed76cc0e8b6');
-blurt.config.set('alternative_api_endpoints', ['https://api.hive.blog', 'https://anyx.io']);
+blurt.config.set('chain_id','cd8d90f29ae273abec3eaa7731e25934c63eb654d55080caff2ebb7f5df6381f');
+blurt.config.set('alternative_api_endpoints', ['https://rpc.blurt.world', 'https://rpc.blurt.world']);
 ```
 ### set
 ```
@@ -59,7 +59,7 @@ blurt.config.get('chain_id');
 ## JSON-RPC
 Here is how to activate JSON-RPC transport:
 ```js
-blurt.api.setOptions({ url: 'https://api.hive.blog' });
+blurt.api.setOptions({ url: 'https://rpc.blurt.world' });
 ```
 
 # API

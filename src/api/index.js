@@ -30,7 +30,7 @@ class Steem extends EventEmitter {
         this.error_count = 0;
         this.api_index = 0;
         this.error_threshold = 3;
-        this.alternative_api_endpoints = ['https://test.blurt.world/rpc', 'https://test.blurt.world/rpc'];
+        this.alternative_api_endpoints = ['https://rpc.blurt.world', 'https://rpc.blurt.world'];
         methods.forEach(method => {
             const methodName = method.method_name || camelCase(method.method);
             const methodParams = method.params || [];
