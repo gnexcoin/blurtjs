@@ -33,7 +33,7 @@ https://gitlab.com/blurt/openblurt/blurtjs/-/tree/master/doc
 ```html
 <script src="./blurt.min.js"></script>
 <script>
-blurt.api.getAccounts(['mahdiyari', 'hiveio'], function(err, response){
+blurt.api.getAccounts(['baabeetaa', 'jacobgadikian'], function(err, response){
     console.log(err, response);
 });
 </script>
@@ -51,24 +51,17 @@ https://cdn.jsdelivr.net/npm/@hiveio/hive-js/dist/hive.min.js<br/>
 ## Server
 ## Install
 ```
-$ npm install @hiveio/blurt-js --save
+$ npm install @blurtfoundation/blurtjs --save
 ```
 
 ## RPC Servers
-https://api.hive.blog By Default<br/>
-https://anyx.io<br/>
-https://api.openhive.network<br/>
-https://api.hivekings.com<br/>
-https://api.pharesim.me<br/>
-https://hived.privex.io<br/>
-https://rpc.ausbit.dev<br/>
-https://rpc.esteem.app<br/>
+https://rpc.blurt.world By Default<br/>
 <sub>[List of Hive nodes](https://hivekings.com/nodes)</sub><br/>
 
 ## Examples
 ### Broadcast Vote
 ```js
-var blurt = require('@hiveio/blurt-js');
+var blurt = require('@blurtfoundation/blurt-js');
 
 var wif = blurt.auth.toWif(username, password, 'posting');
 blurt.broadcast.vote(wif, voter, author, permlink, weight, function(err, result) {
@@ -78,7 +71,7 @@ blurt.broadcast.vote(wif, voter, author, permlink, weight, function(err, result)
 
 ### Get Accounts
 ```js
-blurt.api.getAccounts(['mahdiyari', 'hiveio'], function(err, result) {
+blurt.api.getAccounts(['megadrive', 'jacobgadikian'], function(err, result) {
 	console.log(err, result);
 });
 ```
