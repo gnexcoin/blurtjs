@@ -42,7 +42,7 @@ blurt.api.getAccounts(['mahdiyari', 'hiveio'], function(err, response){
 Default config should work with Hive. However you can change default config.
 as 
 ```js
-blurt.api.setOptions({ url: 'https://rpc.blurt.world' });
+blurt.api.setOptions({ url: 'https://rpc.blurt.world', useAppbaseApi: true });
 blurt.config.set('address_prefix','BLT');
 blurt.config.set('chain_id','cd8d90f29ae273abec3eaa7731e25934c63eb654d55080caff2ebb7f5df6381f');
 blurt.config.set('alternative_api_endpoints', ['https://rpc.blurt.world', 'https://rpc.blurt.world']);
