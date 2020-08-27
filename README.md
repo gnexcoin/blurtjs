@@ -40,7 +40,7 @@ blurt.api.getAccounts(['baabeetaa', 'jacobgadikian'], function(err, response){
 ```
 
 ## CDN
-https://cdn.jsdelivr.net/npm/@hiveio/hive-js/dist/hive.min.js<br/>
+https://cdn.jsdelivr.net/npm/@blurtfoundation/blurtjs/dist/blurt.min.js<br/>
 ```html
 <script src="https://cdn.jsdelivr.net/npm/@blurtfoundation/blurtjs/dist/blurt.min.js"></script>
 ```
