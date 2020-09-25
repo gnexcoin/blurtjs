@@ -1,6 +1,6 @@
 {
-  "name": "@blurtfoundation/blurtjs",
-  "version": "0.1.1",
+  "name": "@ericet/blurtjs",
+  "version": "0.1.0",
   "description": "Blurt.js the JavaScript API for Blurt blockchain",
   "main": "lib/index.js",
   "scripts": {
@@ -17,19 +17,19 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://gitlab.com/blurt/openblurt/blurtjs.git"
+    "url": "git+https://github.com/ericet/blurtjs"
   },
   "keywords": [
     "blurt",
     "blockchain",
     "blurtjs"
   ],
-  "author": "Loki (https://github.com/stalker-loki)",
+  "author": "Loki (https://github.com/ericet)",
   "license": "MIT",
   "bugs": {
-    "url": "https://gitlab.com/blurt/openblurt/blurtjs/-/issues"
+    "url": "https://github.com/ericet/blurtjs/-/issues"
   },
-  "homepage": "https://gitlab.com/blurt/openblurt/blurtjs#readme",
+  "homepage": "https://github.com/ericet/blurtjs#readme",
   "dependencies": {
     "@steemit/rpc-auth": "^1.1.1",
     "bigi": "^1.4.2",
@@ -75,7 +75,8 @@
     "Nilesh Suthar (https://github.com/nil1511)",
     "Pedro Tacla Yamada (https://github.com/yamadapc)",
     "MahdiYari (https://github.com/mahdiyari)",
-    "Loki (https://github.com/stalker-loki)"
+    "Loki (https://github.com/stalker-loki)",
+    "ericet (https://github.com/ericet)"
   ],
   "directories": {
     "doc": "doc",
