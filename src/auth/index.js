@@ -115,7 +115,7 @@ Auth.reqWhaleVaultSig = function (trx, keys, keyType) {
 
 
 		return config.get('whalevault')
-			.promiseRequestSignBuffer('wlsjs', `wls:${user_arr[0]}`, wv_ops, keyType, user_arr[1], 'tx')
+			.promiseRequestSignBuffer('blurtjs', `blt:${user_arr[0]}`, wv_ops, keyType, user_arr[1], 'tx')
 			.then(response => {
 				if (response.success) {
 					trx.signatures = [response.result];
