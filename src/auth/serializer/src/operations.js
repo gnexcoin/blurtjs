@@ -606,6 +606,18 @@ let comment_benefactor_reward = new Serializer(
     reward: asset
 }
 );
+let account_update2 = new Serializer(
+    "account_update2", {
+    account: string,
+    owner: optional(authority),
+    active: optional(authority),
+    posting: optional(authority),
+    memo_key: optional(public_key),
+    json_metadata: string,
+    posting_json_metadata: string,
+    extensions: set(future_extensions)
+}
+);
 
 operation.st_operations = [
     vote,
@@ -654,7 +666,8 @@ operation.st_operations = [
     hardfork,
     comment_payout_update,
     return_vesting_delegation,
-    comment_benefactor_reward
+    comment_benefactor_reward,
+    account_update2
 ];
 
 let transaction = new Serializer(

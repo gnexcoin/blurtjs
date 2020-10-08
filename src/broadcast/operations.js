@@ -417,5 +417,19 @@ module.exports = [
       "request_id",
       "memo"
     ]
+  },
+  {
+    "roles": ["posting", "active", "owner"],
+    "operation": "account_update2",
+    "params": [
+      "account",
+      "owner",
+      "active",
+      "posting",
+      "memo_key",
+      "json_metadata",
+      "posting_json_metadata",
+      "extensions"
+    ]
   }
 ];

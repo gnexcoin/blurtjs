@@ -55,7 +55,8 @@ ChainTypes.operations= {
     hardfork: 43,
     comment_payout_update: 44,
     return_vesting_delegation: 45,
-    comment_benefactor_reward: 46
+    comment_benefactor_reward: 46,
+    account_update2: 47
 };
 
 //types.hpp
