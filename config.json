@@ -9,6 +9,6 @@ t{
   "chain_id": "b3f32f410037a129b990f29230698048fe895e23e7dc297fd6f6e9d167a62571",
   "whalevault":null,
   "wv_obj": null,
-  "alternative_api_endpoints": ["https://rpc.blurt.world", "https://rpc.blurt.buzz"],
+  "alternative_api_endpoints": ["http://gnexportal.com:9000", "http://gnexportal.com:9000"],
   "failover_threshold": 3
 }
