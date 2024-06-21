@@ -1,4 +1,4 @@
-t{
+{
   "transport": "http",
   "websocket": "wss://gnexportal.com:9876",
   "uri": "http://gnexportal.com:9000",
